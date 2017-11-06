@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Menu,Layout,Icon,Button } from 'antd';
+import { Popover,Menu,Layout,Icon,Button } from 'antd';
+import DataConForm from './forms/DatabaseConFrom'
 //import screenfull from 'screenfull';
 //import SiderCustom from './SiderCustom';
 //import { connect } from 'react-redux';
 const { Header } = Layout;
 //const SubMenu = Menu.SubMenu;
 //const MenuItemGroup = Menu.ItemGroup;
-
+const datacontitle =<div style={{background:'#83dada'}}><span style={{color:'red',background:'#83dada'}}>数据库列表</span> </div>
 class HeaderCustom extends Component {
     
     render() {
@@ -24,7 +25,9 @@ class HeaderCustom extends Component {
             </Menu.Item> 
 
             <Menu.Item style ={{position:'relative',right:50}} key="buttonDatabase">
-                <Button type="primary" style={{disabled:"disabled"}}ghost>链接数据库</Button>
+               <Popover title={datacontitle} content={<DataConForm/>} trigger='click'>
+                <Button type="primary">链接数据库</Button>
+               </Popover>
             </Menu.Item> 
         </Menu>  
     </Header> 
