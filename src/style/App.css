@@ -1,0 +1,78 @@
+@import './antddemo.css';
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#sliderLogo {
+  display: block;
+  margin: 20px auto;
+  -webkit-transition:all 1s;
+  -moz-transition:all 1s;
+  -o-transition:all 1s;
+  -ms-transition:all 1s;
+  transition:all 1s;
+}
+#sliderLogo:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.form-title{
+  color: #3D4051;
+  background-color: #98caca;
+  border-color: #e2edeb;
+}
+.submenupanel{
+  position: relative;
+  border: 1px solid transparent;
+  border-color: #e2edeb;
+  border-radius:3px;
+  font-family: "楷体","楷体_GB2312";  
+  color: rgb(81, 81, 61);
+  background-color: #f3f6fa;
+  font-size: 20px;
+  z-index: 1;
+  width:15%;
+  height: 100%;
+  overflow: auto;
+  display: inline-block;
+}
+.plotarea{
+  position: relative;
+  font-size: 20px;
+  padding: 15px 30px;
+  z-index: 1;
+  overflow: auto;
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+}
+.contentlist{
+  padding: 3px;
+  position: relative;
+  background-color:rgba(121,179,168,0.1);
+  color: rgb(12, 12, 11);
+  width: 100%;
+  height: 100%;
+}

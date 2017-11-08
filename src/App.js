@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
-import { Layout, Breadcrumb } from 'antd';
+import './style/App.css';
+import { Layout } from 'antd';
 import SiderCustom from './components/SiderCustom';
 import HeaderCustom from './components/HeaderCustom';
-const {Content,Footer} = Layout;
+import SubmenuArea from './components/SubmenuArea';
+import PlotArea from './components/PlotArea';
+import ChartCategoryForm from './components/forms/ChartCategoryForm'
+const {Content} = Layout;
 
 class App extends Component {
   
@@ -13,18 +16,16 @@ class App extends Component {
         <SiderCustom/>
         <Layout> 
           <HeaderCustom/>
-          <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>图表</Breadcrumb.Item>
-              <Breadcrumb.Item>S11</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              来自数据库的数据图表.
-            </div>
+          <Content style={{ margin: '0 9px' }}>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>
-            Ant Design ©2016 Created by Ant UED
-          </Footer>
+            <div className='contentlist'>
+              <SubmenuArea
+                collpased = 'false'
+                submenu = {ChartCategoryForm}
+              />
+              <PlotArea/>
+            </div>
+          
         </Layout>
       </Layout>
     );

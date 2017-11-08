@@ -1,35 +1,69 @@
 import React, { Component } from 'react';
-import { Popover,Menu,Layout,Icon,Button } from 'antd';
-import DataConForm from './forms/DatabaseConFrom'
+import { Menu,Layout,Icon} from 'antd';
+import  DatabaseCollForm from './forms/DatabaseCollForm'
 //import screenfull from 'screenfull';
 //import SiderCustom from './SiderCustom';
 //import { connect } from 'react-redux';
 const { Header } = Layout;
 //const SubMenu = Menu.SubMenu;
 //const MenuItemGroup = Menu.ItemGroup;
-const datacontitle =<div style={{background:'#83dada'}}><span style={{color:'red',background:'#83dada'}}>数据库列表</span> </div>
+//const datacontitle =<div style={{background:'#83dada'}}><span style={{color:'red',background:'#83dada'}}>数据库列表</span> </div>
 class HeaderCustom extends Component {
     
+    state = {
+        visible: false,
+      };
+      showModal = () => {
+        this.setState({ visible: true });
+      }
+      handleCancel = () => {
+        this.setState({ visible: false });
+      }
+      handleCreate = () => {
+        const form = this.form;
+        form.validateFields((err, values) => {
+          if (err) {
+            return;
+          }
+    
+          console.log('Received values of form: ', values);
+          form.resetFields();
+          this.setState({ visible: false });
+        });
+      }
+      saveFormRef = (form) => {
+        this.form = form;
+    }
+
+
     render() {
       let headerTitleStyle ={display:'inline',fontSize:30,position:"relative",color:'white',left:40}
       return(
-      <Header style={{ background: '#333', padding: 0, height: 65 ,boxShadow: '5px 5px 3px #888888'}} className="custom-theme" >
+      <Header style={{ background: '#333', padding: 0, height: 65 }} className="custom-theme" >
         <h1 style={headerTitleStyle}>
         MIDISBOARD
         </h1>
         <Menu mode="horizontal"
-                style={{ background: '#333',lineHeight: '64px', float: 'right' ,display:'inline_block'}}
+                style={{background: '#333',color:'white',lineHeight: '64px', float: 'right',position:'relative',right:100}}
             >
-            <Menu.Item style ={{position:'relative',right:150}} key="full">
-                <Icon type="arrows-alt"/>
+            <Menu.Item  key="full">
+                <Icon type="arrows-alt" style={{ fontSize: 22}}/>         
+            </Menu.Item> 
+            <Menu.Item  key="space">
+               
             </Menu.Item> 
 
-            <Menu.Item style ={{position:'relative',right:50}} key="buttonDatabase">
-               <Popover title={datacontitle} content={<DataConForm/>} trigger='click'>
-                <Button type="primary">链接数据库</Button>
-               </Popover>
+            <Menu.Item  key="showdatabase" >
+                <Icon type="database" style={{ fontSize:22}} onClick={this.showModal}/>
+                <DatabaseCollForm
+                    ref={this.saveFormRef}
+                    visible={this.state.visible}
+                    onCancel={this.handleCancel}
+                    onCreate={this.handleCreate}
+                />
             </Menu.Item> 
         </Menu>  
+    
     </Header> 
       )
 }
