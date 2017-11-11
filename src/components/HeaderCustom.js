@@ -35,7 +35,6 @@ class HeaderCustom extends Component {
         this.form = form;
     }
 
-
     render() {
       let headerTitleStyle ={display:'inline',fontSize:30,position:"relative",color:'white',left:40}
       return(

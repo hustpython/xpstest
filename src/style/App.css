@@ -1,4 +1,5 @@
-@import './antddemo.css';
+@import './customantd.css';
+@import './custommenu.css';
 .App {
   text-align: center;
 }
@@ -45,14 +46,14 @@
 }
 .submenupanel{
   position: relative;
-  border: 1px solid transparent;
-  border-color: #e2edeb;
   border-radius:3px;
   font-family: "楷体","楷体_GB2312";  
   color: rgb(81, 81, 61);
-  background-color: #f3f6fa;
   font-size: 20px;
-  z-index: 1;
+  border-right: 1px solid rgb(236, 238, 241);
+  box-shadow: rgba(135, 150, 157, 0.35) 0px 2px 12px;
+  z-index: 200;
+  box-sizing: border-box;
   width:15%;
   height: 100%;
   overflow: auto;
@@ -69,9 +70,8 @@
   height: 100%;
 }
 .contentlist{
-  padding: 3px;
   position: relative;
-  background-color:rgba(121,179,168,0.1);
+  background-color:#fff;
   color: rgb(12, 12, 11);
   width: 100%;
   height: 100%;
