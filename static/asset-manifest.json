@@ -3,5 +3,5 @@
   "main.css.map": "static/css/bundle.css.map",
   "main.js": "static/js/bundle.js",
   "main.js.map": "static/js/bundle.js.map",
-  "media/logo.png": "media/logo.fe54239d.png"
+  "static/media/logo.png": "static/media/logo.fe54239d.png"
 }
